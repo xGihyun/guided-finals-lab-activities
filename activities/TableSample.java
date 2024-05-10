@@ -155,6 +155,8 @@ public class TableSample extends JFrame {
 
                     stmt.execute("create database if not exists dbsample");
                     stmt.execute("use dbsample");
+                    stmt.execute(
+                            "create table if not exists tblsample(id varchar(3) not null primary key, name varchar(30) not null, age varchar(3) not null, sex varchar(1) not null)");
 
                     if (txtQuery.getText().equals(""))
                         query = "select * from tblsample";

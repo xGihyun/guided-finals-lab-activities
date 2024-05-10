@@ -63,7 +63,11 @@ public class TableShowRecords extends JFrame {
         String sex = "";
         try {
             dbConnect();
+            stmt.execute("create database if not exists dbsample");
             stmt.execute("use dbsample");
+            stmt.execute(
+                    "create table if not exists tblsample(id varchar(3) not null primary key, name varchar(30) not null, age varchar(3) not null, sex varchar(1) not null)");
+
             query = "select * from tblsample";
             rs = stmt.executeQuery(query);
 

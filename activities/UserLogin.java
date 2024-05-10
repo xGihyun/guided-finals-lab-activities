@@ -378,11 +378,13 @@ class DisplayRecord extends JFrame {
                 try {
                     String idnum = JOptionPane.showInputDialog("Type id number: ");
                     query = "select * from tblsample where id=" + idnum;
+
                     rs = stmt.executeQuery(query);
                     if (rs.next()) {
                         displayValues();
                     } else {
                         JOptionPane.showMessageDialog(null, "id number not found...");
+                        rs = stmt.executeQuery("select * from tblsample");
                     }
                 } catch (SQLException e1) {
                     // TODO Auto-generated catch block
